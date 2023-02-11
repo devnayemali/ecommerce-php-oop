@@ -1,4 +1,6 @@
 <?php
+require_once('../config/config.php');
+
 class Database
 {
     public $host   = DB_HOST;
@@ -32,8 +34,7 @@ class Database
     // Select or Read data
     public function select($query)
     {
-        $result = $this->link->query($query) or
-            die($this->link->error . __LINE__);
+        $result = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($result->num_rows > 0) {
             return $result;
         } else {
@@ -44,8 +45,7 @@ class Database
     // Insert data
     public function insert($query)
     {
-        $insert_row = $this->link->query($query) or
-            die($this->link->error . __LINE__);
+        $insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($insert_row) {
             return $insert_row;
         } else {
@@ -56,8 +56,7 @@ class Database
     // Update data
     public function update($query)
     {
-        $update_row = $this->link->query($query) or
-            die($this->link->error . __LINE__);
+        $update_row = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($update_row) {
             return $update_row;
         } else {
@@ -68,8 +67,7 @@ class Database
     // Delete data
     public function delete($query)
     {
-        $delete_row = $this->link->query($query) or
-            die($this->link->error . __LINE__);
+        $delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($delete_row) {
             return $delete_row;
         } else {
